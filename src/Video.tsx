@@ -19,15 +19,15 @@ export const RemotionVideo: React.FC = () => {
 					titleColor: 'black',
 				}}
 			/>
-			<Composition
+			{/* <Composition
 				id="Logo"
 				component={Logo}
 				durationInFrames={200}
 				fps={30}
 				width={1920}
 				height={1080}
-			/>
-			<Composition
+			/> */}
+			{/* <Composition
 				id="Title"
 				component={Title}
 				durationInFrames={100}
@@ -38,15 +38,15 @@ export const RemotionVideo: React.FC = () => {
 					titleText: 'Welcome to Remotion',
 					titleColor: 'black',
 				}}
-			/>
-			<Composition
+			/> */}
+			{/* <Composition
 				id="Subtitle"
 				component={Subtitle}
 				durationInFrames={100}
 				fps={30}
 				width={1920}
 				height={1080}
-			/>
+			/> */}
 		</>
 	);
 };
