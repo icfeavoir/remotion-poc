@@ -2,6 +2,6 @@
 	"extends": "@remotion",
 	"rules": {
 		"no-console": 0,
-		"capitalized-comments": 0,
+		"capitalized-comments": 0
 	}
 }
