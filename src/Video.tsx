@@ -7,8 +7,7 @@ import { DevMachine } from './DevMachine'
 
 export const RemotionVideo: React.FC = () => {
 	const FPS = 30;
-	const DURATION_IN_SECONDS = 10;
-	// const DURATION_IN_SECONDS = 1;
+	const DURATION_IN_SECONDS = 30;
 	
 	return (
 		<>

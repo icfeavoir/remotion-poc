@@ -36,7 +36,7 @@ export const DevMachineText: React.FC = () => {
     }} >
       {
         texts.map(({ text, color, delay }) => (
-          <DevMachineTextPart text={text} color={color} delay={delay} />
+          <DevMachineTextPart key={text} text={text} color={color} delay={delay} />
         ))
       }
     </div>
