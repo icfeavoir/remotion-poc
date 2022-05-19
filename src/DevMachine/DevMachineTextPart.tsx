@@ -1,21 +1,29 @@
-import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { interpolate, useCurrentFrame } from "remotion";
 
-export const DevMachineTextPart: React.FC<{ text: string, color: string }> = ({ text, color }) => {
+export const DevMachineTextPart: React.FC<{ text: string, color: string, delay: number }> = ({ text, color, delay }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
 
-  // Spring: gives natural animation (physical)
-  const driver = spring({ frame, fps });
-  // Interpolate: maps animation from frame to position
-  // const opacity = frame > 20 ? 1 : frame / 20;
-  const scale = interpolate(driver, [0, 20], [0, 1000], {
-    extrapolateRight: "identity",
+  const rotateX = interpolate(frame - delay, [0, 10], [-90, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
   });
 
+  const css = `
+    .spinner {
+      animation-timing-function: ease-in-out;
+      transform-origin: 60px 60px 0;
+      margin: 0 10px;
+    }
+  `;
+
   return (
-    <span style={{
-      color,
-      fontSize: scale
-    }}>{text}</span>
+    <div className="spinner" style={{
+      transform: `rotateX(${rotateX}deg)`,
+    }}>
+      <style>
+        {css}
+      </style>
+      <p style={{ color }}>{text}</p>
+    </div>
   );
 };

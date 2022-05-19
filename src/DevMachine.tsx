@@ -1,27 +1,25 @@
-import { Sequence, useCurrentFrame,
-	useVideoConfig } from 'remotion';
+import { Sequence } from 'remotion';
+import { COLOR_WHITE } from './DevMachine/constants';
 import {DevMachineText} from './DevMachine/DevMachineText'
+import { Layers } from './DevMachine/Layers';
 
 export const DevMachine: React.FC = () => {
-	const frame = useCurrentFrame();
-	const videoConfig = useVideoConfig();
 	return (
 		<div style={{
 			flex: 1,
-			display: 'flex',
-			backgroundColor: 'white',
-			textAlign: 'center',
-			alignItems: 'center',
-			justifyContent: 'center',
+			backgroundColor: COLOR_WHITE,
 		}}>			
-			{/* 0 seconds */}
-			{/* <Sequence from={0}> */}
+			<Sequence name="empty" from={0} durationInFrames={10}>
+				<div />
+			</Sequence>
+			
+			<Sequence name='layers' from={10} durationInFrames={20}>
+				<Layers />
+			</Sequence>
+			
+			<Sequence name="dev-machine-text" from={30} durationInFrames={90} layout="none">
 				<DevMachineText />
-			{/* </Sequence> */}
-			{/* 2 seconds */}
-			{/* <Sequence from={60}> */}
-				{/* LAYERS (before) */}
-			{/* </Sequence> */}
+			</Sequence>
 			{/* 4 seconds */}
 			{/* <Sequence from={120}> */}
 				{/* Dart + BOUM */}

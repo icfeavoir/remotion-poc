@@ -6,13 +6,17 @@ import { Title } from './HelloWorld/Title';
 import { DevMachine } from './DevMachine'
 
 export const RemotionVideo: React.FC = () => {
+	const FPS = 30;
+	const DURATION_IN_SECONDS = 10;
+	// const DURATION_IN_SECONDS = 1;
+	
 	return (
 		<>
 			<Composition
 				id="dev-machine"
 				component={DevMachine}
-				durationInFrames={300}
-				fps={30}
+				durationInFrames={FPS * DURATION_IN_SECONDS}
+				fps={FPS}
 				width={1920}
 				height={1080}
 			/>
