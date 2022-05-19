@@ -4,7 +4,7 @@ import {useCurrentFrame} from 'remotion'
 import { COLOR_BLUE, COLOR_RED } from "./constants";
 import { DevMachineTextPart } from "./DevMachineTextPart";
 
-export const DevMachineText: React.FC = () => {
+export const DevMachineText: React.FC<{leave?: boolean}> = ({leave = true}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -17,7 +17,8 @@ export const DevMachineText: React.FC = () => {
 
   // keep text 2 seconds
   const REMOVE_AFTER_FRAMES = 2 * fps;
-  const marginLeft = interpolate(frame - REMOVE_AFTER_FRAMES, [0, 30], [0, 1300], {
+  const endMarginLeft = leave ? 1300 : 0;
+  const marginLeft = interpolate(frame - REMOVE_AFTER_FRAMES, [0, 30], [0, endMarginLeft], {
     easing: Easing.bezier(.65,-0.59,.74,1.18),
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",

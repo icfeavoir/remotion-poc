@@ -33,8 +33,13 @@ export const DevMachine: React.FC = () => {
 				<Photos />
 			</Sequence>
 
-			<Sequence name="dev-machine-text" from={534} durationInFrames={90} layout="none">
-				<DevMachineText />
+			{/* TODO: group layers + dm text */}
+			<Sequence name='layers' from={534} durationInFrames={20}>
+				<Layers />
+			</Sequence>
+
+			<Sequence name="dev-machine-text" from={554} durationInFrames={90} layout="none">
+				<DevMachineText leave={false} />
 			</Sequence>
 
 			{/* MUSIC */}

@@ -1,15 +1,14 @@
-import { AbsoluteFill, Img, interpolate, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, Img, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 
 // images
 import photo1 from '../assets/resto.jpg';
 import photo2 from '../assets/sushi.jpg';
 import photo3 from '../assets/marc_beer.jpg';
 import photo4 from '../assets/group.jpg';
-import { CSSProperties } from 'react';
 
 export const Photos: React.FC = () => { 
   const frame = useCurrentFrame();
-  const { width, height } = useVideoConfig();
+  const { width, height, fps } = useVideoConfig();
   
   const PHOTOS = [
     { src: photo1, zooms: [1, 1.2], zoomProperty: 'height', zoomBase: height },
@@ -44,6 +43,14 @@ export const Photos: React.FC = () => {
     };
   })
 
+  // mask for last photo
+  const driver = spring({
+    frame: frame - (90 * 3) - 20,
+    fps: fps * 2,
+  });
+  // TODO
+  const maskHeight = interpolate(driver, [0, 1], [0, 0])
+
   return (
     <AbsoluteFill style={{
       width: '100%',
@@ -53,6 +60,12 @@ export const Photos: React.FC = () => {
       justifyContent: 'center',
       alignItems: 'center',
     }}>
+      <AbsoluteFill
+        style={{
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          height: `${maskHeight}%`,
+        }}
+      />
       {
         PHOTOS.map(({ src, zoomProperty, zoomBase }, i) => {
           const {zoom} = metadata[i];
