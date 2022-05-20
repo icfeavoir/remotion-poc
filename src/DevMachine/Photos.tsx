@@ -1,7 +1,8 @@
 import { AbsoluteFill, Img, interpolate, useCurrentFrame } from 'remotion';
+import { PhotoItem } from './types';
 
 
-export const Photos: React.FC<{photos?: Array<any>}> = ({ photos = []}) => { 
+export const Photos: React.FC<{photos?: Array<PhotoItem>}> = ({ photos = []}) => { 
   const frame = useCurrentFrame();
   
   const OPACITY_DURACTION_FPS = 10;

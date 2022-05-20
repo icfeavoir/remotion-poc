@@ -7,6 +7,8 @@ import { Photos } from './DevMachine/Photos';
 
 import mainMusic from './assets/shining_light.mp3'
 
+import { PhotoItem } from './DevMachine/types';
+
 // images
 import photo1 from './assets/resto.jpg';
 import photo2 from './assets/sushi.jpg';
@@ -19,7 +21,7 @@ export const DevMachine: React.FC = () => {
 
 	const DART_FROM = 490;
 
-	const PHOTOS_1 = [
+	const PHOTOS_1: PhotoItem[] = [
 		{ src: photo1, zooms: [1, 1.2], zoomProperty: 'height', zoomBase: height },
     { src: photo2, zooms: [1.3, 1], zoomProperty: 'width', zoomBase: width },
     { src: photo3, zooms: [1.2, 1.5], zoomProperty: 'width', zoomBase: width },
@@ -28,7 +30,7 @@ export const DevMachine: React.FC = () => {
 	
 	const PHOTOS_2_FROM = DART_FROM + 180;
 	
-	const PHOTOS_2 = [
+	const PHOTOS_2: PhotoItem[] = [
     { src: photo5, zooms: [1, 1], zoomProperty: 'width', zoomBase: width },
   ]
 	
