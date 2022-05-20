@@ -38,7 +38,7 @@ export const DartBoum: React.FC = () => {
 			<Audio
 				src={lakme}
 				volume={0.8}
-        startFrom={30}
+        startFrom={110}
 			/>
     </>
   );
