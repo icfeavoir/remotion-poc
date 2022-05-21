@@ -17,7 +17,8 @@ export const DevMachineText: React.FC<{leave?: boolean}> = ({leave = true}) => {
 
   // keep text 2 seconds
   const REMOVE_AFTER_FRAMES = 2 * fps;
-  const endMarginLeft = leave ? 1810 : 0;
+  const endMarginLeft = leave ? 2000 : 0;
+  // text disapears in 1 seconds
   const marginLeft = interpolate(frame - REMOVE_AFTER_FRAMES, [0, 30], [0, endMarginLeft], {
     easing: Easing.bezier(.65,-0.59,.74,1.18),
     extrapolateLeft: "clamp",
