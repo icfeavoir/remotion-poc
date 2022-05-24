@@ -3,6 +3,7 @@ import {Composition} from 'remotion';
 import {HelloWorld} from './HelloWorld';
 import { DevMachine } from './DevMachine'
 import { StillImage } from './DevMachine/examples/StillImage';
+import { Opacity } from './DevMachine/examples/Opacity';
 
 export const RemotionVideo: React.FC = () => {
 	const FPS = 30;
@@ -34,6 +35,19 @@ export const RemotionVideo: React.FC = () => {
 						titleColor: 'black',
 					}}
 				/>
+				
+				<Composition
+					id="opacity"
+					component={Opacity}
+					durationInFrames={100}
+					fps={30}
+					width={1920}
+					height={1080}
+					defaultProps={{
+						text: 'Hello World',
+					}}
+				/>
+
 				<Still
 					id="image"
 					component={StillImage}
