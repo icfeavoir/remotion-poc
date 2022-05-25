@@ -1,9 +1,10 @@
-import {Folder, IFrame, Still} from 'remotion'
-import {Composition} from 'remotion';
-import {HelloWorld} from './HelloWorld';
+import { Folder, Still } from 'remotion'
+import { Composition } from 'remotion';
+import { HelloWorld } from './HelloWorld';
 import { DevMachine } from './DevMachine'
 import { StillImage } from './DevMachine/examples/StillImage';
 import { Opacity } from './DevMachine/examples/Opacity';
+import { ImageForPresentation } from './DevMachine/examples/ImageForPresentation';
 
 export const RemotionVideo: React.FC = () => {
 	const FPS = 30;
@@ -53,6 +54,14 @@ export const RemotionVideo: React.FC = () => {
 					component={StillImage}
 					width={1920}
 					height={1080}
+				/>
+
+				<Still
+					id="image-for-presentation"
+					component={ImageForPresentation}
+					width={1920}
+					height={1080}
+					defaultProps={{ text: 'exemple' }}
 				/>
 			</Folder>
 		</>

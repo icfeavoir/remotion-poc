@@ -42,17 +42,6 @@ export const DevMachine: React.FC = () => {
 	const SEQUENCE_PHOTOS_2 = { from: SEQUENCE_DART.from + SEQUENCE_DART.duration, duration: 90 };
 	const SEQUENCE_LOGO_2 = { from: SEQUENCE_PHOTOS_2.from + SEQUENCE_PHOTOS_2.duration, duration: 150 };
 
-	const SEQUENCES = [SEQUENCE_EMPTY,
-		SEQUENCE_LOGO_1,
-		SEQUENCE_PHOTOS_1,
-		SEQUENCE_DART,
-		SEQUENCE_PHOTOS_2,
-		SEQUENCE_LOGO_2,
-	];
-
-	const TOTAL_DURATION = SEQUENCES.reduce((acc, seq) => acc + seq.duration, 0);
-	console.log(TOTAL_DURATION)
-
 	return (
 		<div style={{ flex: 1, backgroundColor: COLOR_BLACK	}}>
 			<Sequence name="empty" from={SEQUENCE_EMPTY.from} durationInFrames={SEQUENCE_EMPTY.duration}>
